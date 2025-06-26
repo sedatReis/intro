@@ -1,0 +1,728 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Startseite</title>
+    <link rel="icon" type="image/x-icon" href="././images/logotab.png">
+    <!-- Bootstrap icons-->
+    <link href="././css/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google fonts-->
+    <link rel="preconnect" href="./https://fonts.gstatic.com">
+    <link href="./https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link href="./https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="./https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="././css/styles.css" rel="stylesheet">
+    <!-- Swiper CSS -->
+<link
+rel="stylesheet"
+href="./https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
+    <style>
+    
+
+        
+        /* Passe den Modal-Inhalt an, falls die Bilder größer sind */
+        #galleryModal .modal-body img {
+            max-width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+        }
+
+
+        .carousel-container {
+            width: 50rem;
+            height: 50rem;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .carousel-slide {
+            position: absolute;
+            transition: transform 1s ease, opacity 1s ease;
+        }
+        .carousel-slide img {
+            width: 80%;
+            height: auto;
+            max-height: 100%;
+        }
+        .carousel-indicators button {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        
+        .bg-light h5 {
+            left: 49%;
+            transform: translateX(-50%);
+            position: absolute;
+            color: black; /* Schriftfarbe schwarz */
+            font-family: Arial, sans-serif !important; /* Schriftart wie hier im Chat */
+            
+            padding-top: 0.5%; /* Verschiebt den Text leicht nach unten */
+            font-weight: bold !important; /* Fettgedruckt */
+            font-size: 3rem; /* Vergrößert die Schrift */
+            text-align: center; /* Zentriert den Text */
+        }
+
+
+        .carousel-item {
+            width: 30%;
+            height: auto;
+        }
+
+        .container{
+            margin-bottom: 0%;
+        }
+        
+        .gallery-container {
+            margin-top: 10%; /* Verschiebt die Projekte 50px nach unten */
+        }
+        
+        .modal-body img {
+            max-width: 500%; /* Bilder können die gesamte Breite des Containers einnehmen */
+            max-height: 50vh; /* Höchstens 90% der Höhe des sichtbaren Viewports */
+            width: auto; /* Bewahrt das Seitenverhältnis der Bilder */
+            height: auto; /* Bewahrt das Seitenverhältnis der Bilder */
+            margin: 10px auto; /* Zentriert die Bilder und fügt etwas Abstand zwischen den Bildern hinzu */
+            display: block; /* Zentriert die Bilder im Block-Layout */
+        }
+        
+        .gallery-container img {
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-container img:hover {
+            transform: scale(1.1);
+            z-index: 1;
+        }
+        
+        
+        
+        header.masthead.full-screen-bg {
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    transition: background-image 1s ease-in-out;
+}
+
+
+/* Halbtransparentes Overlay */
+header.masthead .overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Optional */
+    z-index: 0;
+}
+
+/* Damit der Inhalt über dem Overlay bleibt */
+header.masthead > .container {
+    position: relative;
+    z-index: 2;
+}
+
+#typewriter::after {
+  content: "|";
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+        
+        
+        
+        
+        
+        
+      @media (max-width: 768px) {
+        .image-wrapper-mobile {
+            position: relative;
+            display: block;
+        }
+    
+        .image-wrapper-mobile img {
+            opacity: 0.6; /* leicht durchsichtig */
+            width: 100%;
+            display: block;
+            border-radius: 0.5rem;
+        }
+    
+        .overlay-mobile {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 500;
+            text-shadow: 0 0 5px rgba(0,0,0,0.4); /* für bessere Lesbarkeit */
+            pointer-events: none; /* verhindert, dass der Text den Klick blockiert */
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .gallery-container .col-md-4 {
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    /* Standard: overlay ausblenden */
+        .overlay-mobile {
+            display: none;
+        }
+        
+        /* Nur auf mobilen Geräten anzeigen */
+        @media (max-width: 768px) {
+            .overlay-mobile {
+                display: block;
+            }
+        }
+
+
+        .project-card {
+    cursor: default;
+    transition: transform 0.3s ease;
+}
+
+.project-overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    padding: 1rem;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+/* Schrift im Overlay – Desktop */
+.project-overlay h5 {
+    font-size: 1.5rem; /* angenehme Größe für Desktop */
+    font-weight: 600;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(0,0,0,0.6);
+}
+
+.projekt-img {
+  height: 300px;
+  object-fit: cover;
+}
+
+.project-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+/* Schrift im Overlay – Mobil */
+@media (max-width: 768px) {
+    .project-overlay h5 {
+        font-size: 1.1rem; /* kleinere, gut lesbare Größe */
+        padding: 0 0.5rem;
+        line-height: 1.3;
+    }
+}
+
+
+.leistung-section {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+
+.leistung-section .overlay {
+  position: absolute;
+  inset: 0; /* deckt gesamte Section */
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-end;         /* Text unten */
+  justify-content: flex-start;   /* Text links */
+  padding: 40px 5vw;             /* Abstand zu Rand */
+}
+
+.leistung-section .content {
+  max-width: 800px;
+  text-align: left;
+}
+
+.leistung-section h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.leistung-section p {
+  font-size: 1.25rem;
+}
+
+
+
+
+    </style>
+
+<style>
+  .leistung-section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out;
+  }
+
+  .leistung-section.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+</head>
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav" style="background-color: #2b4c7f;">
+      <div class="container px-5 d-flex justify-content-between align-items-center">
+        <a class="navbar-brand fw-bold" href="././index.html">
+          <img src="images/logoooo.png" alt="Your Logo" style="height: 50px;">
+        </a>
+    
+        <!-- Kontakt-Link nur mobil sichtbar, ohne Rahmen -->
+        <a href="././kontakt.html" class="d-lg-none text-white text-decoration-none" style="font-size: 1rem;">Kontakt</a>
+    
+        <!-- Desktop-Navigation -->
+        <div class="d-none d-lg-block">
+          <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+            <li class="nav-item">
+              <a class="nav-link me-lg-3" style="color: white;" href="././kontakt.html">Kontakt</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- Mashead header-->
+    <header class="masthead full-screen-bg position-relative" id="ueber-uns">
+        <div class="overlay"></div>
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-6">
+                    <!-- Mashead text and app badges-->
+                    <div class="mb-5 mb-lg-0 text-center text-lg-start">
+                        <h1 id="typewriter" class="display-4 lh-1 mb-3"></h1>
+                        <div class="d-flex flex-column flex-lg-row align-items-center">
+                        </div>
+                        <!-- Add "Mehr" below the text as a clickable link -->
+                    
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <!-- Masthead device mockup feature-->
+                    <div class="masthead-device-mockup">
+                        <svg class="circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="circleGradient" gradientTransform="rotate(45)">
+                                    <stop class="gradient-start-color" offset="0%"></stop>
+                                    <stop class="gradient-end-color" offset="100%"></stop>
+                                </linearGradient>
+                            </defs>
+                            <circle cx="50" cy="50" r="50"></circle></svg>
+                       
+                    
+                                    
+                    </div>                    
+                </div>  
+            </div>
+        </div>  
+    </header>
+    <br>
+    <section class="leistung-section" style="background-image: url('images/trockenbau.png');">
+      <div class="overlay">
+        <div class="content">
+          <h2>Trockenbau</h2>
+
+
+          <p>Funktional und ästhetisch.<br>Ideale Lösung für moderne Raumgestaltung mit maßgefertigten Trennwänden, Deckenverkleidungen und Akustiklösungen.</p>
+        </div>
+      </div>
+    </section>
+ 
+    
+    <script>
+      const section = document.getElementById('leistung-section');
+      const backgrounds = [
+        'images/systemböden1.jpeg',
+        'images/systemböden2.jpeg'
+      ];
+      let current = 0;
+    
+      setInterval(() => {
+        current = (current + 1) % backgrounds.length;
+        section.style.backgroundImage = `url('${backgrounds[current]}')`;
+      }, 5000);
+    </script>
+    
+      
+      
+      <section class="leistung-section" style="background-image: url('images/resim8.jpeg');">
+        <div class="overlay">
+          <div class="content">
+            <h2>Decke</h2>
+           
+
+
+            <p> Metall-, Akustik- oder Systemdecken.<br>Professionelle Ausführung für jeden Raum</p>
+          </div>
+        </div>
+      </section>
+     
+      <section id="leistung-section" class="leistung-section" style="background-image: url('images/systemböden1.jpeg');">
+        <div class="overlay">
+          <div class="content">
+            <h2>Systemböden</h2>
+            <p>Hohl- und Doppelböden für Büro-, Technik- und Industriebereiche.</p>
+          </div>
+        </div>
+      </section>
+      
+      <br>
+    
+      <section id="auftraege" class="bg-light py-5">
+        <div class="container px-5">
+          <h2 class="text-center mb-5 font-alt">Unsere Projekte</h2>
+      
+          <!-- Swiper Wrapper -->
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+    
+      
+              <!-- Slide 2 -->
+              <div class="swiper-slide">
+                <div class="project-card position-relative overflow-hidden rounded shadow-sm">
+                  <img src="https://www.doemges.ag/images/aktuelles/230529_Spatenstich_Koesching_2549/2549_03.jpg" class="img-fluid w-100 projekt-img" alt="SFZ Kösching">
+                  <div class="project-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
+                    <h5 class="text-white fw-bold">SFZ Kösching</h5>
+                  </div>
+                </div>
+              </div>
+      
+              <!-- Slide 3 -->
+              <div class="swiper-slide">
+                <div class="project-card position-relative overflow-hidden rounded shadow-sm">
+                  <img src="https://www.planungxgruppe.com/sites/default/files/2022-11/PXG_ILS-FFB_Visualisierung.jpg" class="img-fluid w-100 projekt-img" alt="ILS Fürstenfeldbruck">
+                  <div class="project-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
+                    <h5 class="text-white fw-bold">ILS Fürstenfeldbruck</h5>
+                  </div>
+                </div>
+              </div>
+      
+              <!-- Slide 4 -->
+              <div class="swiper-slide">
+                <div class="project-card position-relative overflow-hidden rounded shadow-sm">
+                  <img src="https://www.produktion.de/files/upload/post/pro/2020/07/255248/bmw_werk_muenchen.jpg" class="img-fluid w-100 projekt-img" alt="BMW - TMO TLO">
+                  <div class="project-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
+                    <h5 class="text-white fw-bold">BMW - TMO TLO</h5>
+                  </div>
+                </div>
+              </div>
+
+                  <!-- Slide 5 -->
+                  <div class="swiper-slide">
+                    <div class="project-card position-relative overflow-hidden rounded shadow-sm">
+                      <img src="https://www.vol.at/2021/02/IMG_1819-4-3-365031332350-3133x2350.jpg" class="img-fluid w-100 projekt-img" alt="BMW - TMO TLO">
+                      <div class="project-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
+                        <h5 class="text-white fw-bold">Gemeindezentrum Lech</h5>
+                      </div>
+                    </div>
+                  </div>
+
+
+                      <!-- Slide 6 -->
+              <div class="swiper-slide">
+                <div class="project-card position-relative overflow-hidden rounded shadow-sm">
+                  <img src="https://www.a-list.at/uploads/tx_alist30felder/Falkensteiner_Hotel_Montafon_Winter.jpg" class="img-fluid w-100 projekt-img" alt="BMW - TMO TLO">
+                  <div class="project-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
+                    <h5 class="text-white fw-bold">Hotel Falkensteiner Montafon</h5>
+                  </div>
+                </div>
+              </div>
+      
+            </div>
+      
+            <!-- Navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+      
+
+
+
+
+    <!-- Footer-->
+<!-- Footer -->
+<!-- Footer -->
+<footer class="bg-dark text-center text-white py-5 mt-auto" style="background-color: #2b4c7f !important;" >
+    <div class="container px-5" >
+        <div class="small">
+            <div class="mb-2">© inntro 2025. Alle Rechte vorbehalten.</div>
+            <div class="mb-2">
+                E-Mail: <a href="./mailto:office@inntro.de" class="text-white text-decoration-underline">office@inntro.de</a><br>
+                Telefon: <a href="./tel:+4915251390738" class="text-white text-decoration-underline">+49 152 51390738</a>
+            </div>
+            <div class="mt-3">
+                <a href="././impressum.html" class="text-white-50 text-decoration-underline">Impressum</a>
+            </div>
+            <div class="mt-4 text-white-50">
+                powered by <strong>Alkar-TEC</strong>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Bootstrap core JS-->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src="js/sb-forms-0.4.1.js"></script>
+    <script>
+    
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.carousel-slide');
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.style.transform = `translateX(${(i - index) * 100}%)`;
+                    slide.style.opacity = i === index ? 1 : 0.5;
+                });
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                showSlide(currentSlide);
+            }
+
+            setInterval(nextSlide, 4000);
+            showSlide(currentSlide);
+        });
+
+        // Change words every 3 seconds with animation
+        const words = ["Trockenbau", "Decke", "Systemböden"];
+        let wordIndex = 0;
+        const changingWordsElement = document.getElementById('changing-words');
+
+        function changeWord() {
+            changingWordsElement.classList.remove('show');
+            setTimeout(() => {
+                changingWordsElement.textContent = words[wordIndex];
+                changingWordsElement.classList.add('show');
+                wordIndex = (wordIndex + 1) % words.length;
+            }, 500); // Match this duration mit the CSS transition duration
+        }
+
+        setInterval(changeWord, 3000); // Change word every 3 seconds
+        changeWord(); // Initialize the first word
+
+        // Initialize Carousel
+        const slides = document.querySelectorAll('.carousel-slide');
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                const offset = (i - index + totalSlides) % totalSlides;
+                slide.style.transform = `translateX(${offset * 100 - 100}%)`;
+                slide.style.opacity = offset === 1 ? 1 : 0.5;
+                slide.style.zIndex = offset === 1 ? 2 : 1;
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide, 9000);
+        showSlide(currentSlide);
+
+        // Initialize Image Gallery Modal
+        const slidesImages = document.querySelectorAll('.carousel-slide img');
+        const modalImages = document.getElementById('modalImages');
+
+        slidesImages.forEach((slide, index) => {
+            slide.addEventListener('click', () => {
+                modalImages.innerHTML = '';
+                const images = JSON.parse(slide.getAttribute('data-images'));
+                images.forEach(imageSrc => {
+                    const imgElement = document.createElement('img');
+                    imgElement.src = imageSrc;
+                    imgElement.alt = "Projekt Bild";
+                    imgElement.style.width = '100%'; // Optional: Adjust as needed
+                    imgElement.style.marginBottom = '10px'; // Optional: Adjust spacing between images
+                    modalImages.appendChild(imgElement);
+                });
+            });
+        });
+
+        // Video Mute Button
+        const video = document.querySelector('#video');
+        const muteButton = document.querySelector('#muteButton');
+        const muteIcon = document.querySelector('#muteIcon');
+
+        console.log('Video element:', video);
+        console.log('Mute button:', muteButton);
+
+        muteButton.addEventListener('click', () => {
+            console.log('Mute button clicked');
+            if (video.muted) {
+                video.muted = true;
+                muteIcon.classList.remove('bi-volume-mute-fill');
+                muteIcon.classList.add('bi-volume-up-fill');
+                console.log('Video unmuted');
+            } else {
+                video.muted = false;
+                muteIcon.classList.remove('bi-volume-up-fill');
+                muteIcon.classList.add('bi-volume-mute-fill');
+                console.log('Video muted');
+            }
+        });
+
+        video.addEventListener('loadeddata', () => {
+            video.play();
+        });
+
+        video.addEventListener('timeupdate', () => {
+            if (video.currentTime >= video.duration) {
+                video.currentTime = 0;
+                video.play();
+            }
+        });
+    </script>
+
+ 
+
+    <!-- Gallery Modal -->
+    <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-gradient-primary-to-secondary p-4">
+                    <h5 class="modal-title font-alt text-white" id="galleryModalLabel">Projekte</h5>
+                    <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body border-0 p-4" id="modalImages">
+                    <!-- Bilder werden hier dynamisch hinzugefügt -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    
+
+    <script>
+      const images = [
+        'images/resim6.jpeg',
+        'images/resim7.jpeg',
+        'images/resim8.jpeg'
+      ];
+    
+      const header = document.querySelector('header.masthead.full-screen-bg');
+    
+      // Zufälliges Bild auswählen
+      const randomIndex = Math.floor(Math.random() * images.length);
+      header.style.backgroundImage = `url('${images[randomIndex]}')`;
+    </script>
+      
+
+      <script>
+        const text = "Die Trockenbauer . . . ";
+        const element = document.getElementById("typewriter");
+      
+        function typeText() {
+          let index = 0;
+          element.textContent = "";
+      
+          const interval = setInterval(() => {
+            element.textContent = text.slice(0, index + 1);
+            index++;
+            if (index === text.length) {
+              clearInterval(interval);
+            }
+          }, 150);
+        }
+      
+        // zuerst starten
+        typeText();
+      
+   
+      </script>
+      
+      
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  const swiper = new Swiper(".mySwiper", {
+    loop: true,
+    spaceBetween: 30,
+    slidesPerView: 1,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 2
+      },
+      1200: {
+        slidesPerView: 2
+      }
+    }
+  });
+</script>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+        observer.unobserve(entry.target); // nur einmal animieren
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  document.querySelectorAll('.leistung-section').forEach(section => {
+    observer.observe(section);
+  });
+</script>
+
+
+
+</body></html>
